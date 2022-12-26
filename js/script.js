@@ -220,3 +220,4 @@ calculationButton.addEventListener("click", calculation);
 resetButton.addEventListener("click", resetParametrs)
 forecastButton.addEventListener("click", forecast);
 refineForecastButton.addEventListener("click", refineForecast);
+console.log();
