@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width. initial-scale=1.0">
+	<script src="d3/dist/d3.min.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" type="image/png" href="favicon.png">
+	<title>Прогноз моделей</title>
+</head>
+
+<body>
+	<header class="header">
+		Программа прогнозирования конкретных образцов ВВСТ по данным из открытых источников (на примере самолетов)
+	</header>
+	<div class="page">
+		<div class="parametrs">
+			<div class="given">
+				<div class="given-date">
+					<div class="given-header">Введите данные из открытых источников</div>
+					<form id="given-form">
+						<div class="given-wingspan">
+							<div class="given-wingspan-text">размах крыла</div>
+							<div class="given-wingspan-input">
+								<input class="given-wingspan-value" type="number" name="given-wingspan-value" min="7"
+									max="15" value=7 step="0.5">
+								<div class="given-wingspan-measure"> (м)</div>
+							</div>
+						</div>
+						<div class="given-wing_angle">
+							<div class="given-wing_angle-text">угол стреловидности:</div>
+							<div class="given-wing_angle-input">
+								<div class="given-wing_angle-input_radio">
+									<input type="radio" name="given-wing_angle" value="1" class="given-wing_angle-radio"
+										id="given-wing_angle-1" checked>
+									<label for="given-wing_angle-1">сильно острый</label>
+								</div>
+								<div class="given-wing_angle-input_radio">
+									<input type="radio" name="given-wing_angle" value="2" class="given-wing_angle-radio"
+										id="given-wing_angle-2">
+									<label for="given-wing_angle-2">средне острый</label>
+								</div>
+								<div class="given-wing_angle-input_radio">
+									<input type="radio" name="given-wing_angle" value="3" class="given-wing_angle-radio"
+										id="given-wing_angle-3">
+									<label for="given-wing_angle-3">прямой</label>
+								</div>
+							</div>
+						</div>
+						<div class="given-middle_chord">
+							<div class="given-middle_chord-text">длина средней хорды</div>
+							<div class="given-middle_chord-input">
+								<input class="given-middle_chord-value" type="number" name="given-middle_chord-value"
+									min="1" max="50" value="1">
+								<div class="given-middle_chord-measure"> (м)</div>
+							</div>
+
+						</div>
+					</form>
+				</div>
+				<div class="calculation-button_block">
+					<button type="button" class="button">Расчет основных параметров</button>
+					<button type="reset" class="button button-reset" form="given-form">Сброс параметров</button>
+				</div>
+			</div>
+			<div class="calculation">
+				<div class="calculation-date">
+					<div class="calculation-header">Основные параметры вероятной модели</div>
+					<div class="calculation-area">
+						<div class="calculation-area-text">площадь крыла</div>
+						<div class="calculation-area-result">
+							<div class="calculation-area-value">00</div>
+							<div class="calculation-area-measure"> (м<sup><small>2</small></sup>) </div>
+						</div>
+					</div>
+					<div class="calculation-workload">
+						<div class="calculation-workload-text">удельная нагрузка на крыло</div>
+						<div class="calculation-workload-result">
+							<div class="calculation-workload-value">00</div>
+							<div class="calculation-workload-measure"> (кг/м<sup><small>2</small></sup>)</div>
+						</div>
+					</div>
+					<div class="calculation-mass">
+						<div class="calculation-mass-text">нормальная взлетная масса</div>
+						<div class="calculation-mass-result">
+							<div class="calculation-mass-value">00</div>
+							<div class="calculation-mass-measure">(кг)</div>
+						</div>
+					</div>
+					<button type="button" class="button">Первоначальный прогноз</button>
+				</div>
+				<div class="forecast_parametrs">
+					<div class="par">
+						<div class="par-text par1">Относительная масса силовой установки</div>
+						<div class="par-value">00</div>
+					</div>
+					<div class="par">
+						<div class="par-text">Относительная масса топлива</div>
+						<div class="par-value">00</div>
+
+					</div>
+					<div class="par">
+						<div class="par-text">Относительная масса систем</div>
+						<div class="par-value">00</div>
+					</div>
+					<button type="button" class="button">Уточнить прогноз</button>
+				</div>
+			</div>
+		</div>
+		<div class="forecast">
+			<div class="forecast-header">Модели самолетов</div>
+			<div class="forecast-list">
+				<div class="forecast-list-text">Список моделей самолетов:</div>
+				<table class="table">
+					<tr>
+						<th>Модель</th>
+						<th>V<small><i>max</i></small>.<small> (км/ч)</small></th>
+						<th>V<small><i>y</i></small>.<small> м/с</small></th>
+						<th>L .<small> км</small></th>
+						<th>n<sup>э</sup><small><i>max</i></small></th>
+						<th>n<small><i>y</i><sub>уст</sub></small></th>
+						<th>m<small><sub>0</sub></small>. <small>кг</small></th>
+						<th>&xi;<small><i>эов</i></small></th>
+						<th>&xi;<small><i>су</i></small></th>
+						<th>&xi;<small><i>m</i></small></th>
+						<th>&xi;<small><i>c</i></small></th>
+					</tr>
+					<tr>
+						<td>F-104G</td>
+						<td>1220/2336</td>
+						<td>170</td>
+						<td>630/1250</td>
+						<td>6.6</td>
+						<td>4.1</td>
+						<td>10800</td>
+						<td>0.211</td>
+						<td>0.186</td>
+						<td>0.256</td>
+						<td>0.081</td>
+					</tr>
+					<tr>
+						<td>Дракен J-35D</td>
+						<td>1350/2120</td>
+						<td>130</td>
+						<td>480/1300</td>
+						<td>7.3</td>
+						<td>4.4</td>
+						<td>12375</td>
+						<td>0.207</td>
+						<td>0.180</td>
+						<td>0.265</td>
+						<td>0.073</td>
+					</tr>
+					<tr>
+						<td>Мираж 3E</td>
+						<td>1390/2280</td>
+						<td>130</td>
+						<td>450/1100</td>
+						<td>7.5</td>
+						<td>3.9</td>
+						<td>10470</td>
+						<td>0.213</td>
+						<td>0.175</td>
+						<td>0.234</td>
+						<td>0.093</td>
+					</tr>
+					<tr>
+						<td>Лайтнинг</td>
+						<td>1300/2215</td>
+						<td>205</td>
+						<td>430/1200</td>
+						<td>6.5</td>
+						<td>4.8</td>
+						<td>18026</td>
+						<td>0.191</td>
+						<td>0.230</td>
+						<td>0.244</td>
+						<td>0.064</td>
+					</tr>
+					<tr>
+						<td>Мираж F.1</td>
+						<td>1300/2340</td>
+						<td class="asd">140</td>
+						<td>600/1320</td>
+						<td>7.5</td>
+						<td>5.4</td>
+						<td>12440</td>
+						<td>0.2</td>
+						<td>0.155</td>
+						<td>0.284</td>
+						<td>0.090</td>
+					</tr>
+					<tr>
+						<td>Вигген AJ-37</td>
+						<td>1350/2100</td>
+						<td>174</td>
+						<td>930/2150</td>
+						<td>7.5</td>
+						<td>5.2</td>
+						<td>17000</td>
+						<td>0.206</td>
+						<td>0.161</td>
+						<td>0.279</td>
+						<td>0.087</td>
+					</tr>
+					<tr>
+						<td>F-5E</td>
+						<td>1250/1700</td>
+						<td>130</td>
+						<td>480/1000</td>
+						<td>7.3</td>
+						<td>4.8</td>
+						<td>7410</td>
+						<td>0.215</td>
+						<td>0.119</td>
+						<td>0.283</td>
+						<td>0.082</td>
+					</tr>
+					<tr>
+						<td>F-16A</td>
+						<td>1450/2100</td>
+						<td>245</td>
+						<td>700/1600</td>
+						<td>9.0</td>
+						<td>5.9</td>
+						<td>11550</td>
+						<td>0.207</td>
+						<td>0.155</td>
+						<td>0.274</td>
+						<td>0.072</td>
+					</tr>
+					<tr>
+						<td>Мираж 2000</td>
+						<td>1300/2440</td>
+						<td>220</td>
+						<td>650/1650</td>
+						<td>8.0</td>
+						<td>5.4</td>
+						<td>12200</td>
+						<td>0.214</td>
+						<td>0.152</td>
+						<td>0.275</td>
+						<td>0.082</td>
+					</tr>
+					<tr>
+						<td>F-15C</td>
+						<td>1480/2650</td>
+						<td>260</td>
+						<td>600/1970</td>
+						<td>7.6</td>
+						<td>6.9</td>
+						<td>21139</td>
+						<td>0.206</td>
+						<td>0.178</td>
+						<td>0.289</td>
+						<td>0.040</td>
+					</tr>
+				</table>
+			</div>
+			<div class="forecast-propability">
+				<div class="forecast-propability-text">вероятность соответствия</div>
+				<div class="forecast-propability-result">
+					<div class="forecast-propability-value">00</div>
+					<div class="forecast-propability-measure">%</div>
+				</div>
+			</div>
+			<div class="forecast-text"> прогнозируемые параметры выделенных моделей с погрешностью &#177 5%
+				соответствует действительным
+			</div>
+		</div>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,427 @@
+@font-face {
+	font-family: 'Montserrat';
+	src: url("../fonts/Montserrat-Medium.woff2"),
+		url("../fonts/Montserrat-Medium.woff");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url("../fonts/Montserrat-Regular.woff2"),
+		url("../fonts/Montserrat-Regular.woff");
+	font-weight: 400;
+	font-style: normal;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+
+	font-family: 'Montserrat', sans-serif;
+	font-weight: normal;
+
+	color: rgb(12, 35, 78);
+}
+
+.header {
+	margin: 15px auto;
+	width: 780px;
+	font-weight: 500;
+	text-align: center;
+}
+
+.page {
+	margin: 15px auto;
+	width: 900px;
+	justify-content: space-between;
+}
+
+.parametrs {
+	display: flex;
+	justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+.given {
+	width: 400px;
+	font-size: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.given-header {
+	margin: 5px 0;
+	padding: 5px 0;
+	text-align: center;
+	/* font-size: 20px; */
+	font-weight: 500;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	color: white;
+	border: 1px solid #005470;
+	border-radius: 5px;
+	background-color: #005470;
+}
+
+.given-wingspan {
+	margin: 20px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.given-wingspan-input {
+	display: flex;
+	align-items: center;
+}
+
+.given-wingspan-text {
+	margin-right: 15px;
+}
+
+.given-wingspan-value {
+	width: 95px;
+	margin-right: 5px;
+	padding: 2px 2px;
+	padding-left: 5px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.given-wing_angle {
+	margin: 20px 0;
+}
+
+.given-wing_angle-input {
+	margin-top: 8px;
+}
+
+.given-wing_angle-radio {
+	display: inline-block;
+}
+
+.given-middle_chord {
+	margin: 20px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.given-middle_chord-input {
+	display: flex;
+	align-items: center;
+}
+
+.given-middle_chord-text {
+	margin-right: 15px;
+}
+
+.given-middle_chord-value {
+	margin-right: 5px;
+	width: 95px;
+	padding: 2px 2px;
+	padding-left: 5px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.button {
+	padding: 5px 0;
+	font-family: 'Montserrat', sans-serif;
+	color: rgb(12, 35, 78);
+	font-weight: 500;
+	letter-spacing: 2px;
+	border-radius: 5px;
+	border: 1px solid #008CBA;
+	transition: all 0.1s;
+	width: 100%;
+	background-color: white;
+	transition: color 0.3s;
+	transition: background-color 0.3s;
+	transition: all 0.3s;
+	cursor: pointer;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	/* opacity: 0.6;
+	cursor: not-allowed; */
+}
+
+
+
+
+
+
+
+
+
+
+.calculation {
+	/* margin: 0 70px; */
+	width: 400px;
+	font-size: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.calculation-header {
+	margin: 5px 0;
+	padding: 5px 0;
+	text-align: center;
+	/* font-size: 20px; */
+	font-weight: 500;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	color: white;
+	border: 1px solid #005470;
+	border-radius: 5px;
+	background-color: #005470;
+}
+
+.calculation-area {
+	/* border: 1px solid black; */
+	margin: 15px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.calculation-area-text {
+	margin-right: 15px;
+}
+
+.calculation-area-result {
+	display: flex;
+}
+
+.calculation-area-value {
+	margin-right: 5px;
+	font-size: 17px;
+}
+
+.calculation-area-value.color {
+	font-weight: 500;
+}
+
+.calculation-area-measure {
+	font-size: 15px;
+}
+
+
+.calculation-workload {
+	/* border: 1px solid black; */
+	margin: 15px 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.calculation-workload-text {
+	margin-right: 15px;
+	padding-top: 2px;
+}
+
+.calculation-workload-result {
+	display: flex;
+}
+
+.calculation-workload-value {
+	font-size: 17px;
+	margin-right: 5px;
+}
+
+.calculation-workload-value.color {
+	font-weight: 500;
+}
+
+.calculation-workload-measure {
+	font-size: 15px;
+}
+
+
+.calculation-mass {
+	/* border: 1px solid black; */
+	margin: 15px 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.calculation-mass-result {
+	display: flex;
+	align-items: center;
+}
+
+.calculation-mass-value {
+	font-size: 17px;
+	margin-right: 5px;
+}
+
+.calculation-mass-value.color {
+	font-weight: 500;
+}
+
+.calculation-mass-measure {
+	font-size: 15px;
+}
+
+.par {
+	margin: 15px 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.par-text {
+	display: flex;
+	align-items: center;
+}
+
+.par1 {
+	font-size: 14px;
+}
+
+.par-result {
+	display: flex;
+	align-items: center;
+}
+
+.par-value {
+	font-size: 17px;
+	margin-right: 5px;
+}
+
+.par-value.color {
+	font-weight: 500;
+}
+
+.par-measure {
+	font-size: 15px;
+}
+
+.calculation-button_block {
+	height: 65px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+.forecast {
+	margin: 30px 0;
+	/* width: 395px; */
+	font-size: 15px;
+}
+
+.forecast-header {
+	margin: 5px 0;
+	padding: 5px 0;
+	text-align: center;
+	font-size: 20px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	/* margin-bottom: 30px; */
+	color: white;
+	border: 1px solid #005470;
+	background-color: #005470;
+	border-radius: 5px;
+}
+
+.forecast-text {
+	font-size: 12px;
+	margin: 10px 0 20px 0;
+	font-style: italic;
+	/* visibility: hidden; */
+}
+
+.forecast-list {
+	margin: 20px 0;
+}
+
+.forecast-list-text {
+	margin-bottom: 10px;
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	line-height: 1.5;
+	table-layout: auto;
+}
+
+table small {
+	font-size: 10px;
+}
+
+table sup {
+	font-size: 10px;
+}
+
+.table th {
+	text-align: left;
+	border: 1px dotted #008CBA;
+	font-weight: 500;
+	padding-left: 10px;
+	line-height: 2;
+	font-size: 16px;
+}
+
+.table td {
+	border: 1px dotted #008CBA;
+	padding-left: 10px;
+}
+
+tr:nth-child(even) {
+	background-color: #008bba13
+}
+
+.forecast-propability {
+	margin: 10px 0;
+	display: flex;
+	justify-content: space-between;
+	width: 300px;
+}
+
+.forecast-propability-result {
+	display: flex;
+}
+
+.forecast-propability-value {
+	font-size: 17px;
+	margin-right: 5px;
+}
+
+.forecast-propability-value.color {
+	font-weight: 500;
+}
+
+.forecast-propability-measure {
+	padding-top: 1px;
+	padding-left: 2px;
+}
+
+
+
+
+
+
+
+/* псевдоклассы */
+
+.button:not([disabled]):hover {
+	background-color: #008CBA;
+	color: white;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
