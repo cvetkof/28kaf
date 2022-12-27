@@ -391,7 +391,12 @@ tr:nth-child(even) {
 	margin: 10px 0;
 	display: flex;
 	justify-content: space-between;
+}
+
+.forecast-propability-content {
 	width: 300px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .forecast-propability-result {
@@ -410,6 +415,10 @@ tr:nth-child(even) {
 .forecast-propability-measure {
 	padding-top: 1px;
 	padding-left: 2px;
+}
+
+.btn-graf {
+	width: 300px;
 }
 
 

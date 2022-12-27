@@ -19,6 +19,7 @@ let jointProbabilityFirst = 0;
 let jointProbabilitySecond = 0;
 let jointProbabilityThird = 0;
 let jointProbabilityFourth = 0;
+let mass;
 
 
 
@@ -202,7 +203,7 @@ function refineForecast() {
 				getPropability(counterPropability, 4);
 				counterPropability = 0;
 			}
-			let mass = [[1, jointProbabilityFirst], [2, jointProbabilitySecond], [3, jointProbabilityThird], [4, jointProbabilityFourth]];
+			mass = [[1, jointProbabilityFirst], [2, jointProbabilitySecond], [3, jointProbabilityThird], [4, jointProbabilityFourth]];
 			console.log(mass);
 		}
 	}
@@ -220,4 +221,9 @@ calculationButton.addEventListener("click", calculation);
 resetButton.addEventListener("click", resetParametrs)
 forecastButton.addEventListener("click", forecast);
 refineForecastButton.addEventListener("click", refineForecast);
-console.log();
+
+
+
+
+let selection = d3.selectAll(".graf-content");
+console.log(selection);
