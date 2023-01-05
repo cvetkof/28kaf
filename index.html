@@ -11,23 +11,6 @@
 	<link rel="icon" type="image/png" href="favicon.png">
 	<title>Прогноз моделей</title>
 </head>
-<style>
-	.axis path,
-	.axis line {
-		fill: none;
-		stroke: #333;
-	}
-
-	.axis .grid-line {
-		stroke: #000;
-		stroke-opacity: 0.2;
-	}
-
-	.axis text {
-		font: 10px Verdana;
-	}
-</style>
-
 <body>
 	<header class="header">
 		Программа прогнозирования конкретных образцов ВВСТ по данным из открытых источников (на примере самолетов)
@@ -78,7 +61,7 @@
 					</form>
 				</div>
 				<div class="calculation-button_block">
-					<button type="button" class="button">Расчет основных параметров</button>
+					<button type="button" class="button btn1">Расчет основных параметров</button>
 					<button type="reset" class="button button-reset" form="given-form">Сброс параметров</button>
 				</div>
 			</div>
@@ -106,7 +89,7 @@
 							<div class="calculation-mass-measure">(кг)</div>
 						</div>
 					</div>
-					<button type="button" class="button">Первоначальный прогноз</button>
+					<button type="button" class="button btn2">Первоначальный прогноз</button>
 				</div>
 				<div class="forecast_parametrs">
 					<div class="par">
@@ -122,7 +105,7 @@
 						<div class="par-text">Относительная масса систем</div>
 						<div class="par-value">00</div>
 					</div>
-					<button type="button" class="button">Уточнить прогноз</button>
+					<button type="button" class="button btn3">Уточнить прогноз</button>
 				</div>
 			</div>
 		</div>
@@ -133,12 +116,12 @@
 				<table class="table">
 					<tr>
 						<th>Модель</th>
-						<th>V<small><i>max</i></small>.<small> (км/ч)</small></th>
-						<th>V<small><i>y</i></small>.<small> м/с</small></th>
-						<th>L .<small> км</small></th>
+						<th>V<small><i>max</i></small>,<small> (км/ч)</small></th>
+						<th>V<small><i>y</i></small>,<small> м/с</small></th>
+						<th>L ,<small> км</small></th>
 						<th>n<sup>э</sup><small><i>max</i></small></th>
 						<th>n<small><i>y</i><sub>уст</sub></small></th>
-						<th>m<small><sub>0</sub></small>. <small>кг</small></th>
+						<th>m<small><sub>0</sub></small>, <small>кг</small></th>
 						<th>&xi;<small><i>эов</i></small></th>
 						<th>&xi;<small><i>су</i></small></th>
 						<th>&xi;<small><i>m</i></small></th>
@@ -278,13 +261,44 @@
 			</div>
 			<div class="forecast-propability">
 				<div class="forecast-propability-content">
-					<div class="forecast-propability-text">Вероятность соответствия</div>
-					<div class="forecast-propability-result">
-						<div class="forecast-propability-value">00</div>
-						<div class="forecast-propability-measure">%</div>
+					<div class="forecast-propability-container">
+						<div class="forecast-propability-text">
+							<div class="forecast-propability-rectangl rect1"></div>
+							Соответствие по нормальной взлетной массе (<th>m<small><sub>0</sub></small>):</div>
+						<div class="forecast-propability-result">
+							<div class="forecast-propability-value">00</div>
+							<div class="forecast-propability-measure">%</div>
+						</div>
+					</div>
+					<div class="forecast-propability-container">
+						<div class="forecast-propability-text">
+							<div class="forecast-propability-rectangl rect2"></div>
+							Соответствие по относительно массе силовой установки (&xi;<small><i>су</i></small>)</div>
+						<div class="forecast-propability-result">
+							<div class="forecast-propability-value">00</div>
+							<div class="forecast-propability-measure">%</div>
+						</div>
+					</div>
+					<div class="forecast-propability-container">
+						<div class="forecast-propability-text">
+							<div class="forecast-propability-rectangl rect3"></div>
+							Соответствие по относительной массе топлива (&xi;<small><i>m</i></small>)</div>
+						<div class="forecast-propability-result">
+							<div class="forecast-propability-value">00</div>
+							<div class="forecast-propability-measure">%</div>
+						</div>
+					</div>
+					<div class="forecast-propability-container">
+						<div class="forecast-propability-text">
+							<div class="forecast-propability-rectangl rect4"></div>
+							Соответствие по относительной массе систем (&xi;<small><i>c</i></small>)</div>
+						<div class="forecast-propability-result">
+							<div class="forecast-propability-value">00</div>
+							<div class="forecast-propability-measure">%</div>
+						</div>
 					</div>
 				</div>
-				<button class="button btn-graf" type="button">построить график</button>
+				<button class="button btn4" type="button">построить график</button>
 			</div>
 			<div class="graf-content"></div>
 		</div>

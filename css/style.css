@@ -153,6 +153,11 @@ body {
 	cursor: not-allowed; */
 }
 
+.btn1, .btn2,
+.btn3, .btn4 {
+	display: none;
+}
+
 
 
 
@@ -307,7 +312,7 @@ body {
 	height: 65px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: center;
 }
 
 
@@ -359,6 +364,7 @@ body {
 	border-collapse: collapse;
 	line-height: 1.5;
 	table-layout: auto;
+	color: #000;
 }
 
 table small {
@@ -383,9 +389,9 @@ table sup {
 	padding-left: 10px;
 }
 
-tr:nth-child(even) {
-	background-color: #008bba13
-}
+/* tr:nth-child(even) {
+	background-color: #008bba13;
+} */
 
 .forecast-propability {
 	margin: 10px 0;
@@ -394,9 +400,47 @@ tr:nth-child(even) {
 }
 
 .forecast-propability-content {
-	width: 300px;
+	width: 600px;
+}
+
+.forecast-propability-container {
+	width: 600px;
+	height: 25px;
 	display: flex;
 	justify-content: space-between;
+}
+
+.forecast-propability-text {
+	display: flex;
+	align-items: center;
+}
+
+.forecast-propability-rectangl {
+	width: 30px;
+	height: 15px;
+}
+
+.rect1 {
+	margin: 1px 3px;
+	background-color: orangered;
+	opacity: 0.7;
+}
+
+.rect2 {
+	margin: 1px 3px;
+	background-color: orange;
+	opacity: 0.7;
+}
+
+.rect3 {
+	margin: 1px 3px;
+	background-color: yellow;
+	opacity: 0.7;
+}
+
+.rect4 {
+	margin: 1px 3px;
+	background-color: lawngreen;
 }
 
 .forecast-propability-result {
@@ -417,9 +461,54 @@ tr:nth-child(even) {
 	padding-left: 2px;
 }
 
-.btn-graf {
-	width: 300px;
+
+
+
+
+
+
+
+
+
+
+.axis path,
+.axis line {
+		fill: none;
+		stroke: #333;
+	}
+
+.axis .grid-line {
+		stroke: #000;
+		stroke-opacity: 0.2;
+	}
+
+/* .axis text {
+		font: 10px Verdana;
+	} */
+
+.axis .x-label,
+.axis .y-label{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 12px;
+	letter-spacing: 3px;
 }
+
+.x-axis,
+.y-axis {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 10px;
+	font-weight: 600;
+}
+
+.dot {
+    stroke: steelblue;
+    fill: lightblue;
+}
+
+
+
+
+
 
 
 
