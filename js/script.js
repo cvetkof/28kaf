@@ -80,8 +80,6 @@ function resetColorTd() {
 	}
 }
 
-// console.log(document.querySelectorAll('td'));
-
 function resetParametrs() {
 	document.querySelector('.calculation-area-value').innerHTML = "00";
 	document.querySelector('.calculation-area-value').classList.remove('color');
@@ -101,49 +99,11 @@ function resetParametrs() {
 	counter = 0;
 }
 
-// function getPropability(counter, step) {
-// 	if (step == 1) {
-// 		propabilityFirst = Number((1 / counter).toFixed(3));
-// 		console.log(propabilityFirst);
-// 		document.querySelector('.forecast-propability-value').innerHTML = (propabilityFirst * 100).toFixed(2);
-// 		jointProbabilityFirst = propabilityFirst;
-// 		jointProbabilitySecond = propabilityFirst;
-// 		jointProbabilityThird = propabilityFirst;
-// 		jointProbabilityFourth = propabilityFirst;
-// 	} else {
-// 		if (step == 2) {
-// 			propabilitySecond = Number((1 / counter).toFixed(3));
-// 			console.log(propabilitySecond);
-// 			jointProbabilitySecond = propabilityFirst + propabilitySecond - propabilityFirst * propabilitySecond;
-// 			jointProbabilityThird = propabilityFirst + propabilitySecond - propabilityFirst * propabilitySecond;
-// 			jointProbabilityFourth = propabilityFirst + propabilitySecond - propabilityFirst * propabilitySecond;
-// 			document.querySelector('.forecast-propability-value').innerHTML = (jointProbabilitySecond * 100).toFixed(2);
-// 		} else {
-// 			if (step == 3) {
-// 				propabilityThird = Number((1 / counter).toFixed(3));
-// 				console.log(propabilityThird)
-// 				jointProbabilityThird = propabilityFirst + propabilitySecond + propabilityThird
-// 					- propabilityFirst * propabilitySecond - propabilityFirst * propabilityThird - propabilitySecond * propabilityThird
-// 					+ propabilityFirst * propabilitySecond * propabilityThird;
-// 				jointProbabilityFourth = propabilityFirst + propabilitySecond + propabilityThird
-// 					- propabilityFirst * propabilitySecond - propabilityFirst * propabilityThird - propabilitySecond * propabilityThird
-// 					+ propabilityFirst * propabilitySecond * propabilityThird;
-// 				document.querySelector('.forecast-propability-value').innerHTML = (jointProbabilityThird * 100).toFixed(2);
-// 			} else {
-// 				propabilityFourth = Number((1 / counter).toFixed(3));
-// 				console.log(propabilityFourth);
-// 				jointProbabilityFourth = 1 - propabilityFirst * propabilitySecond * propabilityThird * propabilityFourth;
-// 				document.querySelector('.forecast-propability-value').innerHTML = (jointProbabilityFourth * 100).toFixed(2);
-// 			}
-// 		}
-// 	}
-// }
-
 function getPropability(counter, step) {
 	if (step == 1) {
 		propabilityFirst = Number((1 / counter).toFixed(3));
 		// console.log(propabilityFirst);
-		document.querySelectorAll('.forecast-propability-value')[0].innerHTML = (propabilityFirst * 100).toFixed(2);
+		// document.querySelectorAll('.forecast-propability-value')[0].innerHTML = (propabilityFirst * 100).toFixed(2);
 		jointProbabilityFirst = propabilityFirst;
 		jointProbabilitySecond = propabilityFirst;
 		jointProbabilityThird = propabilityFirst;
@@ -157,7 +117,7 @@ function getPropability(counter, step) {
 				jointProbabilityThird = jointProbabilitySecond;
 				jointProbabilityFourth = jointProbabilitySecond;
 				mass = [{x: 1, y: jointProbabilityFirst}, {x: 2, y: jointProbabilitySecond}, {x: 3, y: jointProbabilityThird}, {x:4, y:jointProbabilityFourth}];
-				document.querySelectorAll('.forecast-propability-value')[1].innerHTML = (jointProbabilitySecond * 100).toFixed(2);
+				// document.querySelectorAll('.forecast-propability-value')[1].innerHTML = (jointProbabilitySecond * 100).toFixed(2);
 			} else {
 				if (step == 3) {
 					propabilityThird = Number((1 / counter).toFixed(3));
@@ -167,219 +127,179 @@ function getPropability(counter, step) {
 						+ propabilityFirst * propabilitySecond * propabilityThird;
 					jointProbabilityFourth = jointProbabilityThird;
 					mass = [{x: 1, y: jointProbabilityFirst}, {x: 2, y: jointProbabilitySecond}, {x: 3, y: jointProbabilityThird}, {x:4, y:jointProbabilityFourth}];
-					document.querySelectorAll('.forecast-propability-value')[2].innerHTML = (jointProbabilityThird * 100).toFixed(2);
+					// document.querySelectorAll('.forecast-propability-value')[2].innerHTML = (jointProbabilityThird * 100).toFixed(2);
 				} else {
 					propabilityFourth = Number((1 / counter).toFixed(3));
 					// console.log(propabilityFourth);
 					jointProbabilityFourth = 1 - propabilityFirst * propabilitySecond * propabilityThird * propabilityFourth;
 					mass = [{x: 1, y: jointProbabilityFirst}, {x: 2, y: jointProbabilitySecond}, {x: 3, y: jointProbabilityThird}, {x:4, y:jointProbabilityFourth}];
-					document.querySelectorAll('.forecast-propability-value')[3].innerHTML = (jointProbabilityFourth * 100).toFixed(2);
+					// document.querySelectorAll('.forecast-propability-value')[3].innerHTML = (jointProbabilityFourth * 100).toFixed(2);
 				}
 			}
 		}
 		// console.log(mass);
 	}
 
-// function forecast() {
-// 	document.querySelectorAll('th')[6].style.backgroundColor = "lightgreen";
-// 	document.querySelector('.forecast-propability-value').classList.add('color');
-// 	for (let i = 6; i < document.querySelectorAll('td').length; i = i + 11) {
-// 		if ((Number(document.querySelectorAll('td')[i].textContent) > normMass * 0.9) &&
-// 			(Number(document.querySelectorAll('td')[i].textContent) < normMass * 1.1)) {
-// 			document.querySelectorAll('td')[i].style.backgroundColor = "lightgreen";
-// 			// document.querySelectorAll('td')[i - 6].style.backgroundColor = "lightgreen";
-// 			counterPropability++;
-// 		}
-// 	}
-// 	if (counterPropability != 0) {
-// 		getPropability(counterPropability, 1);
-// 		counterPropability = 0;
-// 	}
-// 	// document.querySelector('.forecast-propability-value').innerHTML = "00";
-// }
-
-// function refineForecast() {
-// 	if (counter == 0) {
-// 		let relativeWeightPowerPlant = 1846.2 / normMass; //расчет относительной массы силовой установки
-// 		document.querySelectorAll('.par-value')[0].classList.add('color'); //выделение жирным
-// 		document.querySelectorAll('.par-value')[0].innerHTML = relativeWeightPowerPlant.toFixed(3);
-// 		document.querySelectorAll('th')[8].style.backgroundColor = "lightgreen";
-// 		resetColorTd();
-// 		for (let i = 8; i < document.querySelectorAll('td').length; i = i + 11) {
-// 			if (((Number(document.querySelectorAll('td')[i].textContent) > relativeWeightPowerPlant * 0.95) &&
-// 				(Number(document.querySelectorAll('td')[i].textContent) < relativeWeightPowerPlant * 1.05)) &&
-// 				(document.querySelectorAll('td')[i - 2].style.backgroundColor == "lightgreen")) {
-// 				document.querySelectorAll('td')[i].style.backgroundColor = "lightgreen";
-// 				document.querySelectorAll('td')[i - 8].style.backgroundColor = "lightgreen";
-// 				counterPropability++;
-// 			}
-// 		}
-// 		if (counterPropability != 0) {
-// 			getPropability(counterPropability, 2);
-// 			counterPropability = 0;
-// 		}
-// 		counter = 1;
-// 	} else {
-// 		if (counter == 1) {
-// 			let relativeMassFuel = 3260 / normMass;
-// 			document.querySelectorAll('.par-value')[1].classList.add('color');
-// 			document.querySelectorAll('.par-value')[1].innerHTML = relativeMassFuel.toFixed(3);
-// 			document.querySelectorAll('th')[9].style.backgroundColor = "lightgreen";
-// 			resetColorTd();
-// 			for (let i = 9; i < document.querySelectorAll('td').length; i = i + 11) {
-// 				if (((Number(document.querySelectorAll('td')[i].textContent) > relativeMassFuel * 0.97) &&
-// 					(Number(document.querySelectorAll('td')[i].textContent) < relativeMassFuel * 1.03)) &&
-// 					(document.querySelectorAll('td')[i - 1].style.backgroundColor == "lightgreen")) {
-// 					document.querySelectorAll('td')[i].style.backgroundColor = "lightgreen";
-// 					document.querySelectorAll('td')[i - 9].style.backgroundColor = "lightgreen";
-// 					counterPropability++;
-// 				}
-// 			}
-// 			if (counterPropability != 0) {
-// 				getPropability(counterPropability, 3);
-// 				counterPropability = 0;
-// 			}
-// 			counter = 2;
-// 		} else {
-// 			let relativeMassSystems = 857.592 / normMass;
-// 			document.querySelectorAll('.par-value')[2].classList.add('color');
-// 			document.querySelectorAll('.par-value')[2].innerHTML = relativeMassSystems.toFixed(3);
-// 			document.querySelectorAll('th')[10].style.backgroundColor = "lightgreen";
-// 			resetColorTd();
-// 			for (let i = 10; i < document.querySelectorAll('td').length; i = i + 11) {
-// 				if (((Number(document.querySelectorAll('td')[i].textContent) > relativeMassSystems * 0.95) &&
-// 					(Number(document.querySelectorAll('td')[i].textContent) < relativeMassSystems * 1.05)) &&
-// 					(document.querySelectorAll('td')[i - 1].style.backgroundColor == "lightgreen")) {
-// 					document.querySelectorAll('td')[i].style.backgroundColor = "lightgreen";
-// 					document.querySelectorAll('td')[i - 10].style.backgroundColor = "lightgreen";
-// 					counterPropability++;
-// 				}
-// 			}
-// 			if (counterPropability != 0) {
-// 				getPropability(counterPropability, 4);
-// 				counterPropability = 0;
-// 			}
-// 			mass = [{x: 1, y: jointProbabilityFirst}, {x: 2, y: jointProbabilitySecond}, {x: 3, y: jointProbabilityThird}, {x:4, y:jointProbabilityFourth}];
-// 			console.log(mass.length);
-// 		}
-// 	}
-// }
-
-
-function refineForecast() {
+function forecast() {
 	for (let i = 0; i < document.querySelectorAll('.forecast-propability-value').length; i++) {
 		document.querySelectorAll('.forecast-propability-value')[i].innerHTML = "00";
 	}
 
-	// прогноз по нормальной взлетной массе
-	document.querySelectorAll('th')[6].style.backgroundColor = "#ff45004d";
 	for (let i = 0; i < document.querySelectorAll('.forecast-propability-value').length; i++) {
 		document.querySelectorAll('.forecast-propability-value')[i].classList.add('color');
-	}	
+	}
+
+	let relativeWeightPowerPlant = 1846.2 / normMass;
+	let relativeMassFuel = 3260 / normMass;
+	let relativeMassSystems = 857.592 / normMass;
+
+	// прогноз по нормальной взлетной массе
+	// document.querySelectorAll('th')[6].style.backgroundColor = "rgba(255, 0, 0, 0.5)";
 	for (let i = 6; i < document.querySelectorAll('td').length; i = i + 11) {
 		if ((Number(document.querySelectorAll('td')[i].textContent) > normMass * 0.9) &&
 			(Number(document.querySelectorAll('td')[i].textContent) < normMass * 1.1)) {
-			document.querySelectorAll('td')[i + 4].style.backgroundColor = "#ff45004d";
-			document.querySelectorAll('td')[i + 3].style.backgroundColor = "#ff45004d";
-			document.querySelectorAll('td')[i + 2].style.backgroundColor = "#ff45004d";
-			document.querySelectorAll('td')[i + 1].style.backgroundColor = "#ff45004d";
-			document.querySelectorAll('td')[i].style.backgroundColor = "#ff45004d";
-			document.querySelectorAll('td')[i - 1].style.backgroundColor = "#ff45004d";
-			document.querySelectorAll('td')[i - 2].style.backgroundColor = "#ff45004d";
-			document.querySelectorAll('td')[i - 3].style.backgroundColor = "#ff45004d";
-			document.querySelectorAll('td')[i - 4].style.backgroundColor = "#ff45004d";
-			document.querySelectorAll('td')[i - 5].style.backgroundColor = "#ff45004d";
-			document.querySelectorAll('td')[i - 6].style.backgroundColor = "#ff45004d";
-			counterPropability++;
+				for (let j = i - 6; j <= (i + 4); j++) {
+					document.querySelectorAll('td')[j].style.backgroundColor = "#00ff00";
+				}
+				counterPropability++;
+			}
 		}
-	}
 	if (counterPropability != 0) {
 		getPropability(counterPropability, 1);
 		counterPropability = 0;
+	} else {
+		return;
 	}
 
-	//проноз по относительной массе силовой установки
-	let relativeWeightPowerPlant = 1846.2 / normMass;
-	document.querySelectorAll('th')[8].style.backgroundColor = "#ffa5004d";
+	console.log(document.querySelectorAll('td'));
+	// console.log(document.querySelectorAll('td'));
+
+	// проноз по относительной массе силовой установки
+	// document.querySelectorAll('th')[8].style.backgroundColor = "rgb(255, 165, 0, 0.5)";
 	document.querySelectorAll('.par-value')[0].classList.add('color');
 	document.querySelectorAll('.par-value')[0].innerHTML = relativeWeightPowerPlant.toFixed(3);
 	for (let i = 8; i < document.querySelectorAll('td').length; i = i + 11) {
 		if (((Number(document.querySelectorAll('td')[i].textContent) > relativeWeightPowerPlant * 0.95) &&
 			(Number(document.querySelectorAll('td')[i].textContent) < relativeWeightPowerPlant * 1.05)) &&
-			(document.querySelectorAll('td')[i - 2].style.backgroundColor == "rgba(255, 69, 0, 0.3)")) {
-			document.querySelectorAll('td')[i + 2].style.backgroundColor = "#ffa5004d";
-			document.querySelectorAll('td')[i + 1].style.backgroundColor = "#ffa5004d";
-			document.querySelectorAll('td')[i].style.backgroundColor = "#ffa5004d";
-			document.querySelectorAll('td')[i - 1].style.backgroundColor = "#ffa5004d";
-			document.querySelectorAll('td')[i - 2].style.backgroundColor = "#ffa5004d";
-			document.querySelectorAll('td')[i - 3].style.backgroundColor = "#ffa5004d";
-			document.querySelectorAll('td')[i - 4].style.backgroundColor = "#ffa5004d";
-			document.querySelectorAll('td')[i - 5].style.backgroundColor = "#ffa5004d";
-			document.querySelectorAll('td')[i - 6].style.backgroundColor = "#ffa5004d";
-			document.querySelectorAll('td')[i - 7].style.backgroundColor = "#ffa5004d";
-			document.querySelectorAll('td')[i - 8].style.backgroundColor = "#ffa5004d";
-			counterPropability++;
+			(document.querySelectorAll('td')[i].style.backgroundColor == "rgb(0, 255, 0)")) {counterPropability++;}
 		}
-	}
 	if (counterPropability != 0) {
 		getPropability(counterPropability, 2);
 		counterPropability = 0;
+		//перекрашиваем зеленый в желтый
+		for (let i = 0; i < document.querySelectorAll('td').length; i = i + 11) {
+			if (document.querySelectorAll('td')[i].style.backgroundColor == "rgb(0, 255, 0)") {
+				for (let j = i; j < i + 11; j++) {
+					document.querySelectorAll('td')[j].style.backgroundColor = "rgba(255, 255, 0, 0.5)";
+				}
+			}
+		}
+		//закрашиваем в зеленый по относительной массе силовой установки
+		for (let i = 8; i < document.querySelectorAll('td').length; i = i + 11) {
+			if (((Number(document.querySelectorAll('td')[i].textContent) > relativeWeightPowerPlant * 0.95) &&
+				(Number(document.querySelectorAll('td')[i].textContent) < relativeWeightPowerPlant * 1.05)) &&
+				(document.querySelectorAll('td')[i].style.backgroundColor == "rgba(255, 255, 0, 0.5)")) {
+				for (let j = i - 8; j <= (i + 2); j++) {
+					document.querySelectorAll('td')[j].style.backgroundColor = "rgb(0, 255, 0)";
+				}
+			}
+		}
+	} else {
+		return;
 	}
 
+	
+
 	// прогноз по относительной массе топлива
-	let relativeMassFuel = 3260 / normMass;
-	document.querySelectorAll('th')[9].style.backgroundColor = "#ffff004d";
+	// document.querySelectorAll('th')[9].style.backgroundColor = "rgb(255, 255, 0, 0.5)";
 	document.querySelectorAll('.par-value')[1].classList.add('color');
 	document.querySelectorAll('.par-value')[1].innerHTML = relativeMassFuel.toFixed(3);
 	for (let i = 9; i < document.querySelectorAll('td').length; i = i + 11) {
 		if (((Number(document.querySelectorAll('td')[i].textContent) > relativeMassFuel * 0.97) &&
 			(Number(document.querySelectorAll('td')[i].textContent) < relativeMassFuel * 1.03)) &&
-			(document.querySelectorAll('td')[i - 1].style.backgroundColor == "rgba(255, 165, 0, 0.3)")) {
-			document.querySelectorAll('td')[i + 1].style.backgroundColor = "#ffff004d";
-			document.querySelectorAll('td')[i].style.backgroundColor = "#ffff004d";
-			document.querySelectorAll('td')[i - 1].style.backgroundColor = "#ffff004d";
-			document.querySelectorAll('td')[i - 2].style.backgroundColor = "#ffff004d";
-			document.querySelectorAll('td')[i - 3].style.backgroundColor = "#ffff004d";
-			document.querySelectorAll('td')[i - 4].style.backgroundColor = "#ffff004d";
-			document.querySelectorAll('td')[i - 5].style.backgroundColor = "#ffff004d";
-			document.querySelectorAll('td')[i - 6].style.backgroundColor = "#ffff004d";
-			document.querySelectorAll('td')[i - 7].style.backgroundColor = "#ffff004d";
-			document.querySelectorAll('td')[i - 8].style.backgroundColor = "#ffff004d";
-			document.querySelectorAll('td')[i - 9].style.backgroundColor = "#ffff004d";
-			counterPropability++;
+			(document.querySelectorAll('td')[i].style.backgroundColor == "rgb(0, 255, 0)")) {counterPropability++;}
 		}
-	}
 	if (counterPropability != 0) {
 		getPropability(counterPropability, 3);
 		counterPropability = 0;
+		//перекрашиваем желтый в оранжевый
+		for (let i = 0; i < document.querySelectorAll('td').length; i = i + 11) {
+			if (document.querySelectorAll('td')[i].style.backgroundColor == "rgba(255, 255, 0, 0.5)") {
+				for (let j = i; j < i + 11; j++) {
+					document.querySelectorAll('td')[j].style.backgroundColor = "rgba(255, 165, 0, 0.5)";
+				}
+			}
+		}
+		//переркашиваем зеленый в желтый
+		for (let i = 0; i < document.querySelectorAll('td').length; i = i + 11) {
+			if (document.querySelectorAll('td')[i].style.backgroundColor == "rgb(0, 255, 0)") {
+				for (let j = i; j < i + 11; j++) {
+					document.querySelectorAll('td')[j].style.backgroundColor = "rgba(255, 255, 0, 0.5)";
+				}
+			}
+		}
+		//закрашиваем в зеленый по относительной массе топлива
+		for (let i = 9; i < document.querySelectorAll('td').length; i = i + 11) {
+			if (((Number(document.querySelectorAll('td')[i].textContent) > relativeMassFuel * 0.97) &&
+				(Number(document.querySelectorAll('td')[i].textContent) < relativeMassFuel * 1.03)) &&
+				(document.querySelectorAll('td')[i].style.backgroundColor == "rgba(255, 255, 0, 0.5)")) {
+				for (let j = i - 9; j <= (i + 1); j++) {
+					document.querySelectorAll('td')[j].style.backgroundColor = "rgb(0, 255, 0)";
+				}
+			}
+		}
+	} else {
+		return;
 	}
 
+
+
 	// прогноз по относительной массе системы
-	let relativeMassSystems = 857.592 / normMass;
-	document.querySelectorAll('th')[10].style.backgroundColor = "#00fc15";
+	// document.querySelectorAll('th')[10].style.backgroundColor = "#00ff00";
 	document.querySelectorAll('.par-value')[2].classList.add('color');
 	document.querySelectorAll('.par-value')[2].innerHTML = relativeMassSystems.toFixed(3);
 	for (let i = 10; i < document.querySelectorAll('td').length; i = i + 11) {
 		if (((Number(document.querySelectorAll('td')[i].textContent) > relativeMassSystems * 0.95) &&
 			(Number(document.querySelectorAll('td')[i].textContent) < relativeMassSystems * 1.05)) &&
-			(document.querySelectorAll('td')[i - 1].style.backgroundColor == "rgba(255, 255, 0, 0.3)")) {
-			document.querySelectorAll('td')[i].style.backgroundColor = "#00fc15";
-			document.querySelectorAll('td')[i - 1].style.backgroundColor = "#00fc15";
-			document.querySelectorAll('td')[i - 2].style.backgroundColor = "#00fc15";
-			document.querySelectorAll('td')[i - 3].style.backgroundColor = "#00fc15";
-			document.querySelectorAll('td')[i - 4].style.backgroundColor = "#00fc15";
-			document.querySelectorAll('td')[i - 5].style.backgroundColor = "#00fc15";
-			document.querySelectorAll('td')[i - 6].style.backgroundColor = "#00fc15";
-			document.querySelectorAll('td')[i - 7].style.backgroundColor = "#00fc15";
-			document.querySelectorAll('td')[i - 8].style.backgroundColor = "#00fc15";
-			document.querySelectorAll('td')[i - 9].style.backgroundColor = "#00fc15";
-			document.querySelectorAll('td')[i - 10].style.backgroundColor = "#00fc15";
-			counterPropability++;
+			(document.querySelectorAll('td')[i - 1].style.backgroundColor == "rgb(0, 255, 0)")) {counterPropability++;}
 		}
-	}
 	if (counterPropability != 0) {
 		getPropability(counterPropability, 4);
 		counterPropability = 0;
+		//перекрашиваем оранжевый в красный
+		for (let i = 0; i < document.querySelectorAll('td').length; i = i + 11) {
+			if (document.querySelectorAll('td')[i].style.backgroundColor == "rgba(255, 165, 0, 0.5)") {
+				for (let j = i; j < i + 11; j++) {
+					document.querySelectorAll('td')[j].style.backgroundColor = "rgba(255, 0, 0, 0.5)";
+				}
+			}
+		}
+		//перекрашиваем желтый в оранжевый
+		for (let i = 0; i < document.querySelectorAll('td').length; i = i + 11) {
+			if (document.querySelectorAll('td')[i].style.backgroundColor == "rgba(255, 255, 0, 0.5)") {
+				for (let j = i; j < i + 11; j++) {
+					document.querySelectorAll('td')[j].style.backgroundColor = "rgba(255, 165, 0, 0.5)";
+				}
+			}
+		}
+		//переркашиваем зеленый в желтый
+		for (let i = 0; i < document.querySelectorAll('td').length; i = i + 11) {
+			if (document.querySelectorAll('td')[i].style.backgroundColor == "rgb(0, 255, 0)") {
+				for (let j = i; j < i + 11; j++) {
+					document.querySelectorAll('td')[j].style.backgroundColor = "rgba(255, 255, 0, 0.5)";
+				}
+			}
+		}
+		//закрашиваем в зеленый по относительной массе систем
+		for (let i = 10; i < document.querySelectorAll('td').length; i = i + 11) {
+			if (((Number(document.querySelectorAll('td')[i].textContent) > relativeMassSystems * 0.95) &&
+				(Number(document.querySelectorAll('td')[i].textContent) < relativeMassSystems * 1.05)) &&
+				(document.querySelectorAll('td')[i].style.backgroundColor == "rgba(255, 255, 0, 0.5)")) {
+				for (let j = i - 10; j <= i; j++) {
+					document.querySelectorAll('td')[j].style.backgroundColor = "rgb(0, 255, 0)";
+				}
+			}
+		}
 	}
 }
 
@@ -431,22 +351,28 @@ function mainFunction() {
 	resetColorTd();
 	delGraf();
 	calculation();
-	// forecast();
-	refineForecast();
+	forecast();
 	getGraf();
+}
+
+function forecasteTable (row, cell) {
+	let row = document.querySelector(".forecast-table").insertRow(2);
+	for (let i = 0; i < row; i++) {
+		document.querySelector(".forecast-table").insertRow(i);
+	}
+
+	for (let i = 0; i < cell; i++) {
+		row.insertCell(i).innerHTML = i;
+	}
 }
 
 
 document.querySelector('.given-wingspan-value').addEventListener("input", mainFunction);
 document.querySelector('.given-middle_chord-value').addEventListener("input", mainFunction);
 resetButton.addEventListener("click", resetParametrs);
-
-// calculationButton.addEventListener("click", calculation);
-// forecastButton.addEventListener("click", forecast);
-// refineForecastButton.addEventListener("click", refineForecast);
 grafButton.addEventListener("click", delGraf);
 
-
+document.querySelector('.btn4').addEventListener("click", forecasteTable(3, 3));
 
 
 

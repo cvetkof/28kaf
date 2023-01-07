@@ -53,7 +53,7 @@
 							<div class="given-middle_chord-text">длина средней хорды</div>
 							<div class="given-middle_chord-input">
 								<input class="given-middle_chord-value" type="number" name="given-middle_chord-value"
-									min="1" max="50" value="1">
+									min="1" max="9" value="1" step="0.5">
 								<div class="given-middle_chord-measure"> (м)</div>
 							</div>
 
@@ -83,7 +83,7 @@
 						</div>
 					</div>
 					<div class="calculation-mass">
-						<div class="calculation-mass-text">нормальная взлетная масса</div>
+						<div class="calculation-mass-text">нормальная взлетная масса (m<small><sub>0</sub></small>)</div>
 						<div class="calculation-mass-result">
 							<div class="calculation-mass-value">00</div>
 							<div class="calculation-mass-measure">(кг)</div>
@@ -93,16 +93,16 @@
 				</div>
 				<div class="forecast_parametrs">
 					<div class="par">
-						<div class="par-text par1">Относительная масса силовой установки</div>
+						<div class="par-text par1">Относительная масса силовой установки (&xi;<small><i><sub> су</sub></i></small>)</div>
 						<div class="par-value">00</div>
 					</div>
 					<div class="par">
-						<div class="par-text">Относительная масса топлива</div>
+						<div class="par-text">Относительная масса топлива (&xi;<small><i><sub> т</sub></i></small>)</div>
 						<div class="par-value">00</div>
 
 					</div>
 					<div class="par">
-						<div class="par-text">Относительная масса систем</div>
+						<div class="par-text">Относительная масса систем (&xi;<small><i><sub> с</sub></i></small>)</div>
 						<div class="par-value">00</div>
 					</div>
 					<button type="button" class="button btn3">Уточнить прогноз</button>
@@ -182,7 +182,7 @@
 					<tr>
 						<td>Мираж F.1</td>
 						<td>1300/2340</td>
-						<td class="asd">140</td>
+						<td>140</td>
 						<td>600/1320</td>
 						<td>7.5</td>
 						<td>5.4</td>
@@ -300,6 +300,22 @@
 				</div>
 				<button class="button btn4" type="button">построить график</button>
 			</div>
+
+			<table class="table forecast-table">
+				<tr>
+					<th>Цвет</th>
+					<th>Вероятность</th>
+					<th>Параметры</th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+
+			
+
 			<div class="graf-content"></div>
 		</div>
 	</div>

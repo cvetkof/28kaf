@@ -154,7 +154,7 @@ body {
 }
 
 .btn1, .btn2,
-.btn3, .btn4 {
+.btn3 {
 	display: none;
 }
 
@@ -422,25 +422,23 @@ table sup {
 
 .rect1 {
 	margin: 1px 3px;
-	background-color: orangered;
+	background-color: red;
 	opacity: 0.7;
 }
 
 .rect2 {
 	margin: 1px 3px;
 	background-color: orange;
-	opacity: 0.7;
 }
 
 .rect3 {
 	margin: 1px 3px;
-	background-color: yellow;
-	opacity: 0.7;
+	background-color: rgb(255, 255, 0, 0.3);
 }
 
 .rect4 {
 	margin: 1px 3px;
-	background-color: lawngreen;
+	background-color: #00ff00;
 }
 
 .forecast-propability-result {
