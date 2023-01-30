@@ -153,7 +153,8 @@ body {
 	cursor: not-allowed; */
 }
 
-.btn1, .btn2,
+.btn1,
+.btn2,
 .btn3 {
 	display: none;
 }
@@ -367,6 +368,8 @@ body {
 	color: #000;
 }
 
+.data-table {}
+
 table small {
 	font-size: 10px;
 }
@@ -389,9 +392,13 @@ table sup {
 	padding-left: 10px;
 }
 
-/* tr:nth-child(even) {
-	background-color: #008bba13;
-} */
+.forecast-table-header {
+	margin-bottom: 10px;
+}
+
+.forecast-table td {
+	height: 15px;
+}
 
 .forecast-propability {
 	margin: 10px 0;
@@ -471,21 +478,21 @@ table sup {
 
 .axis path,
 .axis line {
-		fill: none;
-		stroke: #333;
-	}
+	fill: none;
+	stroke: #333;
+}
 
 .axis .grid-line {
-		stroke: #000;
-		stroke-opacity: 0.2;
-	}
+	stroke: #000;
+	stroke-opacity: 0.2;
+}
 
 /* .axis text {
 		font: 10px Verdana;
 	} */
 
 .axis .x-label,
-.axis .y-label{
+.axis .y-label {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 12px;
 	letter-spacing: 3px;
@@ -499,8 +506,8 @@ table sup {
 }
 
 .dot {
-    stroke: steelblue;
-    fill: lightblue;
+	stroke: steelblue;
+	fill: lightblue;
 }
 
 
